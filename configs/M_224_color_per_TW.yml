@@ -1,0 +1,42 @@
+wandb_resume: False
+
+train_csv: '/home/solomon/public/Pawn/Others/OCRTest/Chinese_OCR/train/train_cls_onlyTW.csv'
+val_csv: '/home/solomon/public/Pawn/Others/OCRTest/Chinese_OCR/train/val_cls.csv'
+label_map: '/home/solomon/public/Pawn/Others/OCRTest/Chinese_OCR/public/cls_label_map.json'
+Dataset_path: '/home/solomon/public/Pawn/Others/OCRTest/Chinese_OCR/train/train_cls_dataset'
+Dataset_type: 'Pure_Dataset' 
+Data_sampler: 'WeightedRandomSampler'
+model_name: 'tf_efficientnetv2_m_in21k' # tf_efficientnet_b6_ns, tf_efficientnet_b3_ns, tf_efficientnetv2_m_in21k
+pretrain_model: ''
+
+### hyperparameters
+num_workers: 12
+im_size: 224
+batch_size: 142 # 20, 192, 136
+epochs: 20
+validation_period : 99999999
+validation_start_ep : 1
+save_checkpoint : 2000
+lr: 0.0003
+lr_schedule1: 3
+lr_schedule2: 6
+lr_schedule3: 8
+dropout: 0.001
+loss: 'CE'
+opt: 'Adam'
+
+### torch Compose
+RandomHorizontalFlip: 0.5
+brightness: 0.1
+contrast: 0.1
+saturation: 0.1
+hue: 0.2
+Pad_size: 8
+# RandomRotation: 20
+
+### data_opt
+im_load: 'cv2'
+resize_done: False
+im_type: '.jpg'
+use_Gray : False
+rand_anti_white: False

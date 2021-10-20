@@ -1,0 +1,10 @@
+model/
+input/
+log/
+**/__pycache__/
+run/
+__pycache__/*
+*.pth
+*.jpg
+*.zip
+*.json
